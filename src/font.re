@@ -17,7 +17,6 @@ external loadDict : (Js.Dict.t(fontModule)) => Js.Promise.t(unit) =
   "loadAsync";
 
 let loadAll = (fonts) =>
-  List.map(((name,path)) => (name, require(path)), fonts)
-  |> Js.Dict.fromList
+  Js.Dict.fromArray(fonts)
   |> loadDict
 ;
